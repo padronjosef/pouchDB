@@ -8,6 +8,7 @@
   let ENTER_KEY = 13
   let newTodoDom = document.getElementById('new-todo')
   let syncDom = document.getElementById('sync-wrapper')
+  let todoCount = document.getElementById('todo-count')
 
   let db = new PouchDB('todos')
   let remoteCouch = false
@@ -31,9 +32,10 @@
       .catch(console.log)
   }
 
-  function showTodos() {
-    db.allDocs({ include_docs: true, descending: true })
-      .then(doc => redrawTodosUI(doc.rows))
+  async function showTodos() {
+    const dbAllDock = await db.allDocs({ include_docs: true, descending: true })
+    todoCount.innerHTML = dbAllDock.total_rows ||''
+    redrawTodosUI(dbAllDock.rows)
   }
 
   function checkboxChanged(todo, event) {

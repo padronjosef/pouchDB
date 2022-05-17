@@ -45,7 +45,11 @@ h1 {
   gap: 2rem;
 }
 
-.logo{
+a {
+  color: #a6a6a6;
+}
+
+.logo {
   border-radius: 50%;
   width: 82px;
 }
@@ -283,8 +287,12 @@ label[for='toggle-all'] {
 }
 
 #todo-count {
-  float: left;
-  text-align: left;
+  position: absolute;
+  top: 40px;
+  width: 80px;
+  font-size: 4rem;
+  text-align: center;
+  color: #a6a6a6;
 }
 
 #filters {
@@ -334,11 +342,6 @@ label[for='toggle-all'] {
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
   text-align: center;
   width: 100%;
-  align-self: baseline;
-}
-
-#info a {
-  color: inherit;
 }
 
 /*
